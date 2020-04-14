@@ -82,7 +82,7 @@
 	"config": {
 		"xmppURL": "wss://im-api.easemob.com/ws/",
 		"apiURL": "https://a1.easemob.com",
-		"appkey": "1100190906107692#uni-huanxin-im",
+		"appkey": "1105200413168992#51lover",
 		"https": false,
 		"isMultiLoginSessions": false,
 		"isWindowSDK": false,
@@ -90,7 +90,7 @@
 		"isDebug": false,
 		"autoReconnectNumMax": 15,
 		"autoReconnectInterval": 2,
-		"isWebRTC": false,
+		"isWebRTC": true,
 		"isAutoLogin": true,
 		"autoSignIn": false
 	},
