@@ -26,6 +26,10 @@
 				<image src="/static/images/video.png" style="height:20px; width: 20px"/>
 			</view>
 			
+			
+			<emedia-modal ref="emediaModal" @changeIsVideoState="changeIsVideoState" />
+			
+			
 		</view>
 	</view>
 </template>
@@ -36,12 +40,16 @@
 	import chatSuitMain from "@/comps/chat/inputbar/suit/main/main.vue";
 	import chatSuitEmoji from "@/comps/chat/inputbar/suit/emoji/emoji.vue";
 	import chatSuitImage from "@/comps/chat/inputbar/suit/image/image.vue";
+	let videoChat = require("../../../utils/videoChat")
+	
+	import emediaModal from "@/comps/emediaModal/index.vue";
 	
 	export default {
 		components: {
 			chatSuitMain,
 			chatSuitImage,
-			chatSuitEmoji
+			chatSuitEmoji,
+			emediaModal,
 		},
 		props: {
 			username: {
@@ -57,6 +65,7 @@
 			return {
 				recordStatus: RecordStatus.HIDE,
 				RecordStatus,
+				nowIsVideo: false,
 			}
 		},
 		created() {
@@ -77,7 +86,26 @@
 			// sendVideo(){
 			// 	this.data.__comps__.video.sendVideo();
 			// },
+			callVideo() {		
+				this.$refs.emediaModal.showEmediaModal();
+				this.$refs.emediaModal.showCallerWait(
+				  //this.$data.activedKey[this.type].name
+				);
+				//const videoSetting = JSON.parse(localStorage.getItem("videoSetting"));
+				const recMerge =false;
+				const rec =false;
+				videoChat.onCallVideo({
+				  //chatType: this.type,
+				  to: uni.getStorageSync("friend"),
+				  rec,
+				  recMerge
+				});
+			      
+			    },
 			
+			sendLocation(){
+				// this.data.__comps__.location.sendLocation();
+			},
 			openCamera(){
 				this.$refs.image.openCamera();
 			},
@@ -94,13 +122,12 @@
 				this.$refs.image.sendImage();
 			},
 			
-			sendLocation(){
-				// this.data.__comps__.location.sendLocation();
-			},
-			
 			emojiAction(evt){
 				this.$refs.main.emojiAction(evt.msg);
 			},
+			changeIsVideoState(v) {
+			      v ? (this.$data.nowIsVideo = true) : (this.$data.nowIsVideo = false);
+			    },
 		}
 	}
 </script>
