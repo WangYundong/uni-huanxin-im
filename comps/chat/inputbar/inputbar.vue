@@ -22,6 +22,10 @@
 				<image src="/static/images/pic.png" style="height:20px; width: 20px"/>
 			</view>
 			
+			<view class="send_image" @tap="callVideo">
+				<image src="/static/images/video.png" style="height:20px; width: 20px"/>
+			</view>
+			
 		</view>
 	</view>
 </template>
