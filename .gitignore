@@ -1,3 +1,5 @@
 unpackage
 .idea/
 utils/WebIMConfig.js
+package-lock.json
+node_modules/
