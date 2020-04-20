@@ -1,9 +1,9 @@
 <template>
     <Draggable v-show="emediaModalVisible" id='drag1'>
-        <div v-bind:class="{rtcVoiceContent: streamType=='语音', rtcVideoContent: streamType=='视频'}" >
-            <div v-if="callerWaitVisible" class="mask">正在等待{{contact}}接受邀请</div>
-            <div v-if="calleeWaitVisible" class="mask">{{contact}}请求{{streamType}}通话</div>
-            <div v-if="voiceCallVisible" class="voiceCall">正在与{{contact}}通话</div>
+        <view v-bind:class="{rtcVoiceContent: streamType=='语音', rtcVideoContent: streamType=='视频'}" >
+            <view v-if="callerWaitVisible" class="mask">正在等待{{contact}}接受邀请</view>
+            <view v-if="calleeWaitVisible" class="mask">{{contact}}请求{{streamType}}通话</view>
+            <view v-if="voiceCallVisible" class="voiceCall">正在与{{contact}}通话</view>
             <video v-show="streamType == '视频'" ref='localVideo' v-bind:class="{localVideo: toggle, remoteVideo: !toggle}" autoPlay muted playsInline/>
             <video v-show="streamType == '视频'" ref='remoteVideo' v-bind:class="{localVideo: !toggle, remoteVideo: toggle}"  autoPlay playsInline/>
             <i v-show="showMute" class="el-icon-turn-off-microphone font microphone" isopen="true" ref='audio' @click="controlStream('audioControl')"></i>
@@ -14,7 +14,7 @@
             <button v-show="showMute" class="font mute" type="sound" ref="mute" @click="mute">关闭声音</button>
             <i class="el-icon-switch-button close" @click="close"></i>
             <i v-show="showMute && streamType=='视频'" class="el-icon-refresh font toggle" @click="toggleClick"></i>
-        </div>
+        </view>
     </Draggable>
 </template>
 

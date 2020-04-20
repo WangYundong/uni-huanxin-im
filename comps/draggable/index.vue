@@ -1,9 +1,9 @@
 <template>
-	<div id="app1">
-		<div :id="id || 'drag'" class="drag">
+	<view id="app1">
+		<view :id="id || 'drag'" class="drag">
 			<slot id="child">empty</slot>
-		</div>
-	</div>
+		</view>
+	</view>
 </template>
 
 <script>
